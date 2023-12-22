@@ -4,6 +4,7 @@ jobs:
   aws_cp:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -11,4 +12,4 @@ jobs:
           aws-secret-access-key: Fmld7ef/yNSnX9Obu6km8pf7WaftA6mUQkaafp+a
           aws-region: us-east-1
       - name: Upload to s3
-        run: aws s3 cp ./Snowflake.png s3://githubaction-ytdemo
+        run: aws s3 cp ./Snowflake.png  s3://githubaction-ytdemo

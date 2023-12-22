@@ -1,8 +1,14 @@
-name: my_first_github_action
+name: second_github_action
 on: [push]
 jobs:
-  run-shell-commands:
+  aws_cp:
     runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run: echo "Hello"
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: AKIAZPPOD6CFRFO4QR5O
+          aws-secret-access-key: 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
+          aws-region: us-east-1
+      - name: Upload to s3
+        run: aws s3 cp ./Snowflake.png.PNG s3://githubaction-ytdemo
